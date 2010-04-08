@@ -6,5 +6,6 @@
 <?php
 
 require_once('viewers/ChatInputViewer.cls.php');
+require_once('viewers/LoginViewer.cls.php');
 
 ?>
