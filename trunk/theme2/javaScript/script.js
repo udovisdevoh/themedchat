@@ -2,7 +2,7 @@
 
 if (!isIE) document.captureEvents(Event.MOUSEMOVE)
 
-function initAnimation()
+function main()
 {
 	var chatPageDiv = document.getElementById("chatPage");
 	

@@ -32,7 +32,7 @@ var timeDelta = 0;
 
 //if (!isIE) document.captureEvents(Event.MOUSEMOVE)
 
-function initAnimation()
+function main()
 {
 	for (var squareCount = 0; squareCount < desiredSquareCount; squareCount++)
 	{
