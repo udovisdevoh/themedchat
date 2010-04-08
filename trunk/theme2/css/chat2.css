@@ -1,0 +1,177 @@
+﻿* {
+	margin:0;
+	padding:0;
+	border:0;
+}
+
+body
+{
+	background-color:#575956;
+	background-repeat:repeat-x;
+}
+
+html
+{
+	overflow-x: hidden;
+} 
+
+.Clear
+{
+	clear:both;
+}
+
+#chatPage
+{
+	margin-left:auto;
+	margin-right:auto;
+	width:700px;
+}
+
+#chatPage form div.FormElement
+{
+	background-color:#899bbf;
+	border-style:solid;
+	border-width:3px;
+	float:left;
+	padding:3px;
+	filter: alpha (opacity=75);
+	opacity:0.75;
+	border-color:#aebcd8 #616c83 #616c83 #aebcd8;
+	min-height:24px;
+}
+
+#chatPage #formElementOutput
+{
+	width:500px;
+	height:380px;
+}
+
+#chatPage #formElementUserList
+{
+	width:96px;
+	height:380px;
+}
+
+#chatPage #formElementInput
+{
+	width:500px;
+}
+
+#chatPage #formElementInput input
+{
+	/*width:600px;*/
+}
+
+#chatPage #formElementSubmit
+{
+	width:96px;
+}
+
+#chatPage h1
+{
+	font-family: impact;
+	color:#CCF;
+	margin-top:0px;
+	text-shadow:0px 4px #555;
+}
+
+#chatPage .Field
+{
+	border-width:1px;
+	border-style:solid;
+	width:497px;
+	border-color:#555;
+	font-weight:bold;
+	background-image:url("../images/field.gif");
+	background-repeat:no-repeat;
+	background-position:top left;
+	filter: alpha (opacity=75);
+	opacity:0.75;
+	font-family: Courier New, Courier New, Courier6, monospace;
+}
+
+#chatPage .Button
+{
+	border-width:1px;
+	border-style:solid;
+	border-color:#555;
+	background-attachment:fixed;
+	filter: alpha (opacity=100);
+	opacity:1.0;
+	background-image:url("../images/button.gif");
+}
+
+#chatPage .TextOutput
+{
+	height:375px;
+	font-family: Courier New, Courier New, Courier6, monospace;
+	background-image:url("../images/field.gif");
+	border-style:solid;
+	border-color:#555;
+	border-width:1px;
+	filter: alpha (opacity=75);
+	opacity:0.75;
+	overflow:auto;
+}
+
+#chatPage .TextOutput p
+{
+	margin:5px;
+	margin-bottom:10px;
+}
+
+#chatPage .LayerImage
+{
+	background-repeat:repeat-x;
+	position:absolute;
+	left:0px;
+	width:2400px;
+	min-height:871px;
+}
+
+#chatPage #layer001Image
+{
+	background-color:#575956;
+	background-image:url("../images/Layer.001.png");
+	z-index:-6;
+}
+
+#chatPage #layer002Image
+{
+	background-image:url("../images/Layer.002.png");
+	width:4130px;
+	z-index:-5;
+}
+
+#chatPage #layer003Image
+{
+	background-image:url("../images/Layer.003.png");
+	background-position:0px 330px;
+	width:4400px;
+	z-index:-4;
+}
+
+#chatPage #layer004Image
+{
+	background-image:url("../images/Layer.004.png");
+	background-position:0px 100px;
+	width:4356px;
+	z-index:-3;
+}
+
+#chatPage #layer005Image
+{
+	background-image:url("../images/Layer.005.png");
+	background-position:0px 475px;
+	width:4131px;
+	z-index:-2;
+}
+
+#chatPage #layer006Image
+{
+	background-image:url("../images/Layer.006.png");
+	background-position:0px 450px;
+	width:3332px;
+	min-height:950px;
+	z-index:-1;
+}
