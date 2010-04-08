@@ -27,6 +27,9 @@ class ChatInputViewer
 			$html .= '</form>';
 		$html .= '</div>';
 		
+		$menuViewer = new MenuViewer();
+		$html .= $menuViewer->getHtmlCode();
+		
 		return $html;
 	}
 }

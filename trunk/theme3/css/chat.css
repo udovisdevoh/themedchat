@@ -28,10 +28,13 @@ body
 	overflow:hidden;
 	height:550px;
 	width:100%;
+	
 }
 
 #chatPage form div.FormElement
 {
+	position:relative;
+	z-index:300;
 	background-color:#FF8;
 	border-style:double;
 	border-width:10px;
@@ -302,4 +305,23 @@ body
 	position:fixed;
 	top:0px;
 	right:100px;
+}
+
+div.Menu
+{
+	margin-left:auto;
+	margin-right:10px;
+	margin-top:10px;
+	width:700px;
+	z-index:300;
+}
+
+div.Menu a
+{
+	color:#FFF;
+}
+
+div.Menu a:hover
+{
+	color:#CCC;
 }
