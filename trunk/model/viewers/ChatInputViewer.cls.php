@@ -1,7 +1,7 @@
 <?php
 class ChatInputViewer
 {
-	public function getHtmlCode()
+	public function getHtmlCode($chatAction)
 	{
 		$html = "";
 		
@@ -13,7 +13,10 @@ class ChatInputViewer
 					$html .= '</div>';
 				$html .= '</div>';
 				
-				$html .= '<div class="FormElement" id="formElementUserList"></div>';
+				$html .= '<div class="FormElement" id="formElementUserList">';
+					if (is_array($chatAction->getMemberList()))
+						$html .= implode('<br/>',$chatAction->getMemberList());
+				$html .= '</div>';
 				
 				$html .= '<div class="Clear"></div>';
 				
