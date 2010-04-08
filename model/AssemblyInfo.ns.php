@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 //Viewers
 require_once('viewers/ChatInputViewer.cls.php');

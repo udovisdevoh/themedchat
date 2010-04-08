@@ -1,7 +1,7 @@
 <?php
 class LoginViewer
 {
-	public function getHtmlCode()
+	public function getHtmlCode($loginAction)
 	{
 		$html = "";
 		
@@ -11,7 +11,7 @@ class LoginViewer
 				$html .= '<div class="FormElement" id="formElementOutput">';
 
 					$html .= '<div>Usager: <input type="text" name="user" /></div>';
-					$html .= '<div>Mot de passe: <input type="text" name="password" /></div>';
+					$html .= '<div>Mot de passe: <input type="password" name="password" /></div>';
 					
 					$html .= '<div>';
 						$html .= '<input class="Button" type="submit" value="Entrer" />';
@@ -22,6 +22,8 @@ class LoginViewer
 				
 			$html .= '</form>';
 		$html .= '</div>';
+		
+		//$html .= '<p style="color:#FFF">'.$loginAction->getResult().'</p>';
 		
 		$menuViewer = new MenuViewer();
 		$html .= $menuViewer->getHtmlCode();
