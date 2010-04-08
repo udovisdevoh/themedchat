@@ -11,7 +11,7 @@
 	<body onload="main()">
 		<?php
 			$chatInputViewer = new ChatInputViewer();
-			echo $chatInputViewer->getHtmlCode();
+			echo $chatInputViewer->getHtmlCode($chatAction);
 		?>
 	</body>
 </html>
