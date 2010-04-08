@@ -1,7 +1,7 @@
 <?php
 class SubscribeViewer
 {
-	public function getHtmlCode()
+	public function getHtmlCode($subscribeAction)
 	{
 		$html = "";
 		
@@ -11,7 +11,7 @@ class SubscribeViewer
 				$html .= '<div class="FormElement" id="formElementOutput">';
 
 					$html .= '<div>Usager: <input type="text" name="user" /></div>';
-					$html .= '<div>Mot de passe: <input type="text" name="password" /></div>';
+					$html .= '<div>Mot de passe: <input type="password" name="password" /></div>';
 					
 					$html .= '<div>';
 						$html .= '<input class="Button" type="submit" value="S\'enregistrer" />';
@@ -22,6 +22,8 @@ class SubscribeViewer
 				
 			$html .= '</form>';
 		$html .= '</div>';
+		
+		$html .= '<p style="color:#FFF">'.$subscribeAction->getResult().'</p>';
 		
 		$menuViewer = new MenuViewer();
 		$html .= $menuViewer->getHtmlCode();

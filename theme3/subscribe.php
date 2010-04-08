@@ -11,7 +11,7 @@
 	<body onload="main()">
 		<?php
 			$subscribeViewer = new SubscribeViewer();
-			echo $subscribeViewer->getHtmlCode();
+			echo $subscribeViewer->getHtmlCode($subscribeAction);
 		?>
 	</body>
 </html>

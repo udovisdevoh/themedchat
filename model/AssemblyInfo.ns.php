@@ -13,4 +13,7 @@ require_once('actions/LogoutAction.cls.php');
 require_once('actions/ChatAction.cls.php');
 require_once('actions/SubscribeAction.cls.php');
 
+//Nusoap
+require_once('nusoap/nusoap.php');
+
 ?>
