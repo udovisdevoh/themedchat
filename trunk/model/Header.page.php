@@ -2,12 +2,3 @@
 <title>Chat</title>
 <link href="./css/chat.css" rel="stylesheet" type="text/css" media="screen" />		
 <script type="text/javascript" src="./javaScript/script.js"></script>
-
-<?php
-
-require_once('viewers/ChatInputViewer.cls.php');
-require_once('viewers/LoginViewer.cls.php');
-require_once('viewers/SubscribeViewer.cls.php');
-require_once('viewers/MenuViewer.cls.php');
-
-?>
