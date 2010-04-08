@@ -14,6 +14,8 @@ class LoginAction extends AbstractAction
 			echo "(Erreur : )" . $err;
 		}
 		
+		header('Location: ./');
+		
 		$this->result = $soapClient->call('connecter', array('nomUsager' => $_POST['user'], 'motDePasse' => md5($_POST['password'])));		
 		
 		$_SESSION['chatKey'] = $this->result;
