@@ -7,7 +7,7 @@ class ChatInputViewer
 		
 		$html .= '<div id="chatPage">';
 			$html .= '<h1>Chat</h1>';
-			$html .= '<form method="post" action="<?php echo $_SERVER['REQUEST_URI']?>">';
+			$html .= '<form method="post" action="'.$_SERVER['REQUEST_URI'].'">';
 				$html .= '<div class="FormElement" id="formElementOutput">';
 					$html .= '<div class="TextOutput">';
 					$html .= '</div>';
