@@ -14,7 +14,6 @@ class SubscribeAction extends AbstractAction
 			echo "(Erreur : )" . $err;
 		}
 		
-		//pw: munymuny
 		$this->result = $soapClient->call('enregistrer', array('matricule' => '0171066','prenom' => 'Guillaume','nom' => 'Lacasse','nomUsager' => $_POST['user'], 'motDePasse' => md5($_POST['password'])));		
 	}
 	

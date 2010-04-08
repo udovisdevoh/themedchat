@@ -11,7 +11,7 @@
 	<body onload="main()">
 		<?php
 			$loginViewer = new LoginViewer();
-			echo $loginViewer->getHtmlCode();
+			echo $loginViewer->getHtmlCode($loginAction);
 		?>
 	</body>
 </html>
