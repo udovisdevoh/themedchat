@@ -5,7 +5,7 @@ class LoginAction extends AbstractAction
 
 	public function doAction()
 	{
-	if (!$_POST['user'] || !$_POST['password'])
+		if (!$_POST['user'] || !$_POST['password'])
 			return;
 			
 		$soapClient = new nusoap_client('http://b63server.notes-de-cours.com/services.php', false);
