@@ -5,8 +5,8 @@
 	</head>
 	<body onload="main()">
 		<?php
-			$chatInputViewer = new ChatInputViewer();
-			echo $chatInputViewer->getHtmlCode();
+			$loginViewer = new LoginViewer();
+			echo $loginViewer->getHtmlCode();
 		?>
 	</body>
 </html>
