@@ -1,11 +1,11 @@
 <?php
-class SubscribeAction extends AbstractAction
+class UnsubscribeAction extends AbstractAction
 {
 	private $result = "";
 	
 	public function doAction()
 	{
-		if (!$_POST['user'] || !$_POST['password'] || !$_POST['matricule'])
+		if (!$_POST['matricule'])
 			return;
 			
 		$soapClient = new nusoap_client('http://b63server.notes-de-cours.com/services.php', false);
@@ -14,7 +14,7 @@ class SubscribeAction extends AbstractAction
 			echo "(Erreur : )" . $err;
 		}
 		
-		$this->result = $soapClient->call('enregistrer', array('matricule' => $_POST['matricule'],'prenom' => 'Guillaume','nom' => 'Lacasse','nomUsager' => $_POST['user'], 'motDePasse' => md5($_POST['password'])));		
+		$this->result = $soapClient->call('desenregistrer', array('matricule' => $_POST['matricule']));		
 	}
 	
 	public function getResult()

@@ -1,7 +1,7 @@
 <?php
-class SubscribeViewer
+class UnsubscribeViewer
 {
-	public function getHtmlCode($subscribeAction)
+	public function getHtmlCode($unsubscribeAction)
 	{
 		$html = "";
 		
@@ -10,12 +10,10 @@ class SubscribeViewer
 			$html .= '<form method="post" action="'.$_SERVER['REQUEST_URI'].'">';
 				$html .= '<div class="FormElement" id="formElementOutput">';
 
-					$html .= '<div>Usager: <input type="text" name="user" /></div>';
 					$html .= '<div>Matricule: <input type="text" name="matricule" /></div>';
-					$html .= '<div>Mot de passe: <input type="password" name="password" /></div>';
 					
 					$html .= '<div>';
-						$html .= '<input class="Button" type="submit" value="S\'enregistrer" />';
+						$html .= '<input class="Button" type="submit" value="Se désenregistrer" />';
 					$html .= '</div>';
 					
 				
@@ -25,7 +23,7 @@ class SubscribeViewer
 			$html .= '</form>';
 		$html .= '</div>';
 		
-		$html .= '<p style="color:#FFF">'.$subscribeAction->getResult().'</p>';
+		$html .= '<p style="color:#FFF">'.$unsubscribeAction->getResult().'</p>';
 		
 		$menuViewer = new MenuViewer();
 		$html .= $menuViewer->getHtmlCode();
