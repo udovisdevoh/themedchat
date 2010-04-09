@@ -7,7 +7,7 @@ class ChatInputViewer
 		
 		$html .= '<div id="chatPage">';
 			$html .= '<h1>Chat</h1>';
-			$html .= '<form method="post" action="'.$_SERVER['REQUEST_URI'].'">';
+			$html .= '<form method="get" action="'.$_SERVER['REQUEST_URI'].'" onsubmit="sendMessage();return false">';
 				$html .= '<div class="FormElement" id="formElementOutput">';
 					$html .= '<div class="TextOutput" id="textOutput">';					
 						if (is_array($chatAction->getMessageList()))

@@ -1,11 +1,11 @@
 function loadChatData()
 {
-	loadChatDataElement("../model/ajax/getMessageList.php","textOutput");
-	loadChatDataElement("../model/ajax/getMemberList.php","formElementUserList");
+	loadChatDataElement("../model/ajax/getMessageList.php","textOutput",true);
+	loadChatDataElement("../model/ajax/getMemberList.php","formElementUserList",false);
 	setTimeout(loadChatData, 2000);
 }
 
-function loadChatDataElement(url, targedDomElementId)
+function loadChatDataElement(url, targedDomElementId, isAppendDomContent)
 {
 	var xmlhttp;
 	var objectFromJson;
@@ -32,14 +32,51 @@ function loadChatDataElement(url, targedDomElementId)
 			for (var key in objectFromJson)
 			{
 				var value = objectFromJson[key];
-				innerHTML  += value + "<br>";
+				
+				if (value instanceof Array)
+				{
+					for (var key2 in value)
+					{
+						var value2 = value[key2];
+						innerHTML  += value2 + " : ";
+					}
+					innerHTML  += "<br/>";
+				}
+				else
+				{
+					innerHTML  += value + "<br/>";
+				}
 			}
-			document.getElementById(targedDomElementId).innerHTML = innerHTML;
+			
+			if (isAppendDomContent)
+				document.getElementById(targedDomElementId).innerHTML += innerHTML;
+			else
+				document.getElementById(targedDomElementId).innerHTML = innerHTML;
   	    }
 	}
 				
 	xmlhttp.open("GET",url,true);
 	xmlhttp.send(null);
+}
+
+function sendMessage()
+{
+	var textField = document.getElementById('inputText');
+	var textFieldValue = textField.value;
+	document.getElementById('textOutput').innerHTML += readCookie("user") + " : ";
+	document.getElementById('textOutput').innerHTML += textFieldValue + "<br/>";
+	textField.value = "";
+	return false;
+}
+
+function readCookie(cookieName)
+{
+	var theCookie=""+document.cookie;
+	var ind=theCookie.indexOf(cookieName);
+	if (ind==-1 || cookieName=="") return ""; 
+	var ind1=theCookie.indexOf(';',ind);
+	if (ind1==-1) ind1=theCookie.length; 
+	return unescape(theCookie.substring(ind+cookieName.length+1,ind1));
 }
 
 function print_r(theObj)
