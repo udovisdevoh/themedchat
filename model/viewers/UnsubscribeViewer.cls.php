@@ -6,7 +6,7 @@ class UnsubscribeViewer
 		$html = "";
 		
 		$html .= '<div id="chatPage">';
-			$html .= '<h1>S\'enregistrer</h1>';
+			$html .= '<h1>Se désenregistrer</h1>';
 			$html .= '<form method="post" action="'.$_SERVER['REQUEST_URI'].'">';
 				$html .= '<div class="FormElement" id="formElementOutput">';
 
