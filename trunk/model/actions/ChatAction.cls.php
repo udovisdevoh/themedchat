@@ -14,7 +14,7 @@ class ChatAction extends AbstractAction
 			echo "(Erreur : )" . $err;
 		}
 		
-		sleep(1);
+		/*sleep(1);
 		
 		$this->memberList = $soapClient->call('listeDesMembres', array('clef' => $_SESSION['chatKey']));
 		
@@ -27,7 +27,7 @@ class ChatAction extends AbstractAction
 			sleep(1);
 			$_POST['inputText'] = strip_tags($_POST['inputText']);
 			$soapClient->call('ecrireMessage', array('clef' => $_SESSION['chatKey'],'message' => stripslashes($_POST['inputText'])));
-		}
+		}*/
 	}
 	
 	public function getMemberList()
