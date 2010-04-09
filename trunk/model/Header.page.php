@@ -2,4 +2,4 @@
 <title>Chat</title>
 <link href="./css/chat.css" rel="stylesheet" type="text/css" media="screen" />		
 <script type="text/javascript" src="./javaScript/script.js"></script>
-<script type="text/javascript" src="../model/chat.js"></script>
+<script type="text/javascript" src="../model/Chat.js"></script>
