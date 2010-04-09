@@ -6,7 +6,12 @@ class MenuViewer
 		$html = "";
 		
 		$menuItem[] = '<a href=".\">Chat</a>';
-		$menuItem[] = '<a href="login.php">Se connecter</a>';
+		
+		if ($_COOKIE['user'] != null)
+			$menuItem[] = $_COOKIE['user'];
+		else
+			$menuItem[] = '<a href="login.php">Se connecter</a>';
+			
 		$menuItem[] = '<a href="logout.php">Se déconnecter</a>';
 		$menuItem[] = '<a href="subscribe.php">S\'enregistrer</a>';
 		$menuItem[] = '<a href="unsubscribe.php">Se désenregistrer</a>';

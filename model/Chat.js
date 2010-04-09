@@ -1,5 +1,5 @@
 var messageToSend = null;
-var defaultDelay = 1000;
+var defaultDelay = 2000;
 
 function loadMessageList()
 {
@@ -48,7 +48,7 @@ function loadChatDataElement(url, targedDomElementId, isAppendDomContent)
 				var value = objectFromJson[key];
 				
 				if (value instanceof String)
-					innerHTML += value;
+					innerHTML += stripHTML(value);
 				else if (value['nomUsager'] != undefined)
 					innerHTML += stripHTML(value.nomUsager) + " : " + stripHTML(value.message);
 				else
