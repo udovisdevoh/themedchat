@@ -16,7 +16,7 @@ class ChatAction extends AbstractAction
 		
 		sleep(1);
 		
-		$this->memberList = $soapClient->call('listeDesMembres', array('clef' => $_SESSION['chatKey']));		
+		$this->memberList = $soapClient->call('listeDesMembres', array('clef' => $_SESSION['chatKey']));
 		
 		sleep(1);
 		
