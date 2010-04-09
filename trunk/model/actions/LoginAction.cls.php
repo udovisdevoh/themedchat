@@ -14,6 +14,9 @@ class LoginAction extends AbstractAction
 			echo "(Erreur : )" . $err;
 		}
 		
+		setcookie("user",$_POST['user']);
+		setcookie("password",$_POST['password']);
+		
 		header('Location: ./');
 		
 		$this->result = $soapClient->call('connecter', array('nomUsager' => $_POST['user'], 'motDePasse' => md5($_POST['password'])));		
