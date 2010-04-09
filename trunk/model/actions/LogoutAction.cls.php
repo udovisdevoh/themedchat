@@ -11,6 +11,9 @@ class LogoutAction extends AbstractAction
 		
 		$this->result = $soapClient->call('deconnecter', array('clef' => $_SESSION['chatKey']));				
 	
+		setcookie("user",null);
+		setcookie("password",null);
+		
 		session_destroy();
 		header('Location: ./');
 	}
