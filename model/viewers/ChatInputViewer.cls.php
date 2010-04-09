@@ -9,7 +9,7 @@ class ChatInputViewer
 			$html .= '<h1>Chat</h1>';
 			$html .= '<form method="post" action="'.$_SERVER['REQUEST_URI'].'">';
 				$html .= '<div class="FormElement" id="formElementOutput">';
-					$html .= '<div class="TextOutput">';					
+					$html .= '<div class="TextOutput" id="textOutput">';					
 						if (is_array($chatAction->getMessageList()))
 							$html .= $this->getHtmlCodeMessageList($chatAction->getMessageList());
 					$html .= '</div>';
@@ -31,6 +31,12 @@ class ChatInputViewer
 				$html .= '</div>';
 			$html .= '</form>';
 		$html .= '</div>';
+		
+		$html .= '<script type="text/javascript">';
+		$html .= "\n";
+		$html .= 'setTimeout(loadChatData, 1000);';
+		$html .= "\n";
+		$html .= '</script>';
 		
 		$menuViewer = new MenuViewer();
 		$html .= $menuViewer->getHtmlCode();
