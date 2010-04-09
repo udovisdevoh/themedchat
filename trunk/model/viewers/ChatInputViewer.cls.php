@@ -17,7 +17,7 @@ class ChatInputViewer
 				
 				$html .= '<div class="FormElement" id="formElementUserList">';
 					if (is_array($chatAction->getMemberList()))
-						$html .= implode('<br/>',$chatAction->getMemberList());
+						$html .= $this->getHtmlCodeMemberList($chatAction->getMemberList());
 				$html .= '</div>';
 				
 				$html .= '<div class="Clear"></div>';
@@ -38,18 +38,26 @@ class ChatInputViewer
 		return $html;
 	}
 	
-	public function getHtmlCodeMessageList($messageList)
+	private function getHtmlCodeMessageList($messageList)
 	{
 		$html = "";
 		
 		foreach ($messageList as $message)
 		{
 			$html .= '<p>';
-				$html .= '<b>'.$message['nomUsager'].':</b> ';
-				$html .= '<i>'.$message['message'].'</i> ';
+				$html .= '<b>'.strip_tags($message['nomUsager']).':</b> ';
+				$html .= '<i>'.strip_tags($message['message']).'</i> ';
 			$html .= '</p>';
 		}
 		
+		return $html;
+	}
+	
+	private function getHtmlCodeMemberList($memberList)
+	{		
+		$counter = 0;
+		foreach ($memberList as $member)
+			$html .= strip_tags($member).'<br />';	
 		return $html;
 	}
 }
