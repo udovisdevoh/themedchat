@@ -1,8 +1,19 @@
-function loadChatData()
+var messageToSend = null;
+var defaultDelay = 1000;
+
+function loadMessageList()
 {
 	loadChatDataElement("../model/ajax/getMessageList.php","textOutput",true);
+	setTimeout(loadMemberList,defaultDelay);
+}
+
+function loadMemberList()
+{
 	loadChatDataElement("../model/ajax/getMemberList.php","formElementUserList",false);
-	setTimeout(loadChatData, 2000);
+	if (messageToSend == null || messageToSend == "")
+		setTimeout(loadMessageList,defaultDelay);
+	else
+		setTimeout(sendMessage,defaultDelay);
 }
 
 function loadChatDataElement(url, targedDomElementId, isAppendDomContent)
@@ -29,24 +40,23 @@ function loadChatDataElement(url, targedDomElementId, isAppendDomContent)
 			
 			var innerHTML = "";
 			
+			if (objectFromJson == "NOT_LOGGED_IN")
+				return;
+
 			for (var key in objectFromJson)
 			{
 				var value = objectFromJson[key];
 				
-				if (value instanceof Array)
-				{
-					for (var key2 in value)
-					{
-						var value2 = value[key2];
-						innerHTML  += value2 + " : ";
-					}
-					innerHTML  += "<br/>";
-				}
+				if (value instanceof String)
+					innerHTML += value;
+				else if (value['nomUsager'] != undefined)
+					innerHTML += stripHTML(value.nomUsager) + " : " + stripHTML(value.message);
 				else
-				{
-					innerHTML  += value + "<br/>";
-				}
+					innerHTML += stripHTML(value);
+					
+				innerHTML  += "<br/>";
 			}
+
 			
 			if (isAppendDomContent)
 				document.getElementById(targedDomElementId).innerHTML += innerHTML;
@@ -59,14 +69,55 @@ function loadChatDataElement(url, targedDomElementId, isAppendDomContent)
 	xmlhttp.send(null);
 }
 
-function sendMessage()
+function onSendMessage()
 {
 	var textField = document.getElementById('inputText');
 	var textFieldValue = textField.value;
-	document.getElementById('textOutput').innerHTML += readCookie("user") + " : ";
-	document.getElementById('textOutput').innerHTML += textFieldValue + "<br/>";
+	messageToSend = textFieldValue;
+	showSelfMessage();
+}
+
+function showSelfMessage()
+{
+	var textField = document.getElementById('inputText');
+	var textFieldValue = textField.value;
+	document.getElementById('textOutput').innerHTML += stripHTML(readCookie("user"));
+	document.getElementById('textOutput').innerHTML += " : " + stripHTML(textFieldValue) + "<br/>";
 	textField.value = "";
 	return false;
+}
+
+function sendMessage()
+{
+	var messageContent = messageToSend;
+	messageToSend = null;
+
+	var xmlhttp;
+	var objectFromJson;
+				
+	if (window.XMLHttpRequest)
+	{
+  		// code for IE7+, Firefox, Chrome, Opera, Safari
+  		xmlhttp=new XMLHttpRequest();
+  	}
+	else
+	{
+  		// code for IE6, IE5
+  		xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  	}
+	
+	xmlhttp.onreadystatechange = function()
+	{
+	    if (xmlhttp.readyState == 4)
+		{
+			//objectFromJson = json_parse(xmlhttp.responseText);
+  	    }
+	}
+	
+	xmlhttp.open("GET","../model/ajax/sendMessage.php?inputText=" + escape(messageContent),true);
+	xmlhttp.send(null);
+	
+	setTimeout(loadMessageList,defaultDelay);
 }
 
 function readCookie(cookieName)
@@ -77,6 +128,32 @@ function readCookie(cookieName)
 	var ind1=theCookie.indexOf(';',ind);
 	if (ind1==-1) ind1=theCookie.length; 
 	return unescape(theCookie.substring(ind+cookieName.length+1,ind1));
+}
+
+function stripHTML(oldString)
+{
+   var newString = "";
+   var inTag = false;
+   for(var i = 0; i < oldString.length; i++) {
+   
+        if(oldString.charAt(i) == '<') inTag = true;
+        if(oldString.charAt(i) == '>') {
+              if(oldString.charAt(i+1)=="<")
+              {
+              		//dont do anything
+	}
+	else
+	{
+		inTag = false;
+		i++;
+	}
+        }
+   
+        if(!inTag) newString += oldString.charAt(i);
+
+   }
+
+   return newString;
 }
 
 function print_r(theObj)
