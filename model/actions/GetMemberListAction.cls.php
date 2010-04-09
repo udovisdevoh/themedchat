@@ -12,8 +12,6 @@ class GetMemberListAction extends AbstractAction
 			echo "(Erreur : )" . $err;
 		}
 		
-		sleep(1);
-		
 		$this->ajaxData = json_encode($soapClient->call('listeDesMembres', array('clef' => $_SESSION['chatKey'])));
 	}
 	

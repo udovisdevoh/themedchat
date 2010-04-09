@@ -12,8 +12,6 @@ class GetMessageListAction extends AbstractAction
 			echo "(Erreur : )" . $err;
 		}
 		
-		sleep(1);
-		
 		$this->ajaxData = json_encode($soapClient->call('lireMessages', array('clef' => $_SESSION['chatKey'])));
 	}
 	
